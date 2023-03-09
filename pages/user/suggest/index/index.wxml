@@ -1,0 +1,5 @@
+<van-cell is-link title="服务投诉" label="向平台投诉当前发布信息的用户"  custom-class="vancell_style" bind:tap="handleClick" data-type="1" wx:if="{{orderId.length>0}}"/>
+<van-cell is-link title="功能异常" label="向开发者反馈一起货运吧的异常问题"  custom-class="vancell_style"  bind:tap="handleClick" data-type="2"/>
+<van-cell is-link title="新功能建议" label="向开发者反馈你对一起货运吧的相关建议" custom-class="vancell_style"  bind:tap="handleClick" data-type="3"/>
+<van-cell is-link title="违规举报" label="若遇色情、暴力、诈骗、骚扰、违法犯罪等情况,可向平台举报" custom-class="vancell_style"  bind:tap="handleClick" data-type="4"/>
+<!-- <van-button plain round block type="info"  color="#1989FA" size="small" type="default" custom-class="van-button_style" bind:tap="handleTapSuggest">反馈记录</van-button> -->

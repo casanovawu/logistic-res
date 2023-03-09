@@ -1,0 +1,56 @@
+.van-card {
+    background-color: var(--card-background-color, #fafafa);
+    box-sizing: border-box;
+    color: var(--card-text-color, #323233);
+    padding: var(--card-padding, 8px 16px);
+    position: relative;
+
+    .van-card__header {
+        display: flex;
+
+        .van-card__thumb {
+            flex: none;
+            height: var(--card-thumb-size, 60px);
+            margin-right: var(--padding-xs, 8px);
+            position: relative;
+            width: var(--card-thumb-size, 60px);
+
+            .van-card__img {
+                border-radius: 8px;
+                height: 100%;
+                width: 100%;
+            }
+        }
+
+        .van-card__content {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: left;
+            position: relative;
+        }
+    }
+}
+
+van-skeleton {
+    .van-skeleton__row {
+        --skeleton-row-background-color:#FFFFFF;
+    }
+}
+
+.center_content {
+    padding-top: 16rpx;
+    padding-bottom: 0rpx;
+}
+
+.center_content_content {
+    padding-top: 16rpx;
+    padding-bottom: 16rpx;
+}
+
+van-field {
+    .van-cell{
+        --cell-background-color: #fafafa;
+    }
+}

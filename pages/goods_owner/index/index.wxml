@@ -1,0 +1,51 @@
+<van-dropdown-menu>
+  <van-dropdown-item value="{{ status }}" options="{{ statusList }}"  bind:change="onChangeStatusList"/>
+  <van-dropdown-item value="{{ sort }}" options="{{ sortList }}" bind:change="onChangeSortList" />
+</van-dropdown-menu>
+<view wx:if="{{hasData}}" wx:for="{{ myPublishList }}" wx:key="index">
+  <navigator url="/pages/goods_owner/publishDetail/index?orderId={{item.orderId}}">
+    <van-cell-group inse>
+      <van-cell title-width="0px">
+        <van-row>
+          <van-col span="11" class="van-ellipsis" custom-class="vancol_style">
+            {{item.departureAddressName}}
+          </van-col>
+          <van-col span="2" class="van-ellipsis" custom-class="vancol_style">
+          <span class="arrow-right"/>
+          </van-col>
+          <van-col span="11" class="van-ellipsis" custom-class="vancol_style">
+            {{item.arriveAddressName}}
+          </van-col>
+        </van-row>
+        <van-row>
+          <van-col span="24" custom-class="vancol_style">{{item.cartTypeListName}}</van-col>
+        </van-row>
+        <van-row>
+          <van-col span="24" class="van-ellipsis" custom-class="vancol_style">
+            {{item.goodsInfo}}
+          </van-col>
+        </van-row>
+        <van-row>
+          <van-col span="18" custom-class="vancol_style">{{item.statusName}}</van-col>
+          <van-col span="6" custom-class="vancol_style" class="van-ellipsis" wx:if="{{item.priceStyle===1}}">
+            {{pageModuleMap.price}}: {{item.price}}
+          </van-col>
+          <van-col span="6" custom-class="vancol_style" wx:if="{{item.priceStyle===2}}">
+            {{pageModuleMap.phone_meet}}
+          </van-col>
+        </van-row>
+        <van-row wx:if="{{item.status===2}}">
+          <view class="notice_bar_style">
+            <van-icon name="info-o" />
+            {{pageModuleMap.remain_time}}:
+            <van-count-down time="{{item.remainTime}}" />
+          </view>
+        </van-row>
+      </van-cell>
+    </van-cell-group>
+  </navigator>
+</view>
+<view wx:if="{{!hasData}}">
+  <van-empty description="{{pageModuleMap.publish_content_is_empty || ''}}" />
+</view>
+<view style="height: 5rem;"></view>

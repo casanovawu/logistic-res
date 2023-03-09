@@ -1,0 +1,62 @@
+{
+  "pages": [
+    "pages/login/index",
+    "pages/driven/index/index",
+    "pages/driven/line/index/index",
+    "pages/driven/line/subscribe/index",
+    "pages/driven/line/subscribeDetail/index",
+    "pages/driven/searchDetail/index",
+    "pages/goods_owner/index/index",
+    "pages/goods_owner/publish/index",
+    "pages/goods_owner/publishDetail/index",
+    "pages/user/index/index",
+    "pages/user/suggest/index/index",
+    "pages/user/suggest/submit/index",
+    "pages/user/collection/index",
+    "pages/selectLang/index",
+    "pages/user/setting/index",
+    "pages/agreement/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "custom": true,
+    "list": [
+      {
+        "pagePath": "pages/goods_owner/index/index",
+        "text": "货主首页"
+      },
+      {
+        "pagePath": "pages/driven/index/index",
+        "text": "司机首页"
+      },
+      {
+        "pagePath": "pages/goods_owner/publish/index",
+        "text": "货主发布"
+      },
+      {
+        "pagePath": "pages/driven/line/index/index",
+        "text": "司机订阅线路"
+      },
+      {
+        "pagePath": "pages/user/index/index",
+        "text": "我的"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents",
+  "usingComponents": {
+    "van-toast": "@vant/weapp/toast/index"
+  },
+  "requiredPrivateInfos": ["getLocation","chooseAddress","chooseLocation"],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序定位"
+    }
+  }
+}

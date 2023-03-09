@@ -1,0 +1,41 @@
+.vancol_style {
+  text-align: left;
+  overflow: hidden;
+  color: #686464;
+  font-size: 25rpx;
+}
+van-count-down .van-count-down {
+  color: var(--count-down-text-color, #F56723);
+  font-size: var(--count-down-font-size, 25rpx);
+  line-height: var(--count-down-line-height, 25rpx);
+}
+.notice_bar_style {
+  color: #F56723;
+  background: #FFF7CC;
+  align-items: center;
+  display: flex;
+  font-size: 26rpx;
+}
+van-icon {
+  padding-right: 5rpx;
+}
+van-count-down {
+  padding-left: 10rpx;
+}
+.arrow-right {
+  height: 16rpx;
+  width: 6rpx;
+  display: inline-block;
+  position: relative;
+}
+.arrow-right::after {
+  content: "";
+  height: 8rpx;
+  width: 8rpx;
+  top: 1.2rpx;
+  border-width: 0.8rpx 0.8rpx 0 0;
+  border-color: blue;
+  border-style: solid;
+  transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  position: absolute;
+}

@@ -1,0 +1,36 @@
+<view wx:if="{{hasData}}" class="van-card" wx:for="{{ searchList }}" wx:key="index">
+  <navigator  url="/pages/driven/searchDetail/index?orderId={{item.orderId}}">
+  <view class="van-card__header">
+    <view class="van-card__thumb">
+      <image class='van-card__img' mode="aspectFit" src="{{item.headPic}}" />
+    </view>
+    <view class="van-card__content van-card__content">
+      <van-row>
+        <van-col span="11" class="van-ellipsis" custom-class="vancol_style">{{item.departureAddressName}}</van-col>
+        <van-col span="2" class="van-ellipsis" custom-class="vancol_style">
+          <span class="arrow-right" />
+        </van-col>
+        <van-col span="11" class="van-ellipsis" custom-class="vancol_style">{{item.arriveAddressName}}</van-col>
+      </van-row>
+      <van-row>
+        <van-col>{{item.cartTypeListName || ''}}</van-col>
+      </van-row>
+      <van-row>
+        <van-col span="20">{{item.useStartDate}}出发</van-col>
+        <van-col span="4" wx:if="{{item.priceStyle===1}}">{{item.price}}</van-col>
+        <van-col span="4" wx:if="{{item.priceStyle===2}}">电议</van-col>
+      </van-row>
+    </view>
+  </view>
+  <view class="van-card__footer">
+    <van-row>
+      <van-col span="20">{{item.publishTime}}</van-col>
+      <van-col span="4">{{item.lookNumber}}人查看</van-col>
+    </van-row>
+  </view>
+  </navigator>
+</view>
+<view wx:if="{{!hasData}}">
+  <van-empty description="收藏列表为空" />
+</view>
+<view style="height: 5rem;"></view>

@@ -1,0 +1,33 @@
+<view class="van-hairline--surround">
+    <van-cell title="出发城市" value="{{departmentCityValue}}" required is-link arrow-direction="{{showDepartmentCity? 'down':''}}" bind:click="handleClickDepartmentCity"></van-cell>
+    <van-divider hairline custom-class="vandivider_style" />
+    <van-cell title="目的城市" value="{{arriveCityValue}}" required is-link arrow-direction="{{showArriveCity? 'down':''}}" bind:click="handleClickArriveCity"></van-cell>
+    <van-divider hairline custom-class="vandivider_style" />
+    <van-cell title="用车类型(最多三项,可以不填)" is-link value="{{carTypeValue}}" arrow-direction="{{showCarType? 'down':''}}" bind:tap="handleTapCarType" data-showtype="{{showCarType}}" />
+    <van-checkbox-group wx:if="{{showCarType}}" value="{{carTypeCheckedList}}" bind:change="onChangeCarType" max="{{3}}" direction="horizontal">
+        <view wx:for="{{ carTypeList }}" wx:key="index">
+            <van-checkbox shape="square" custom-class="vanCheckbox_cartType" name="{{ item.key }}">
+                {{item.name}}
+            </van-checkbox>
+        </view>
+    </van-checkbox-group>
+    <van-divider hairline custom-class="vandivider_style" />
+</view>
+<van-col span="12">
+    <van-button round block type="info" custom-class='van-button_style' bind:click="handleUpdateDetail">
+        确认修改
+    </van-button>
+</van-col>
+<van-col span="12">
+    <van-button round block type="info" custom-class='van-button_style' bind:click="handleOffline">
+        下线
+    </van-button>
+</van-col>
+<view style="height: 5rem;"></view>
+<van-toast id="van-toast" />
+<van-popup show="{{ showDepartmentCity }}" custom-class="vanpopup_styple" bind:close="onCloseDepartmentCity">
+    <van-area area-list="{{ areaList }}" value="{{departmentAreaCode}}" title="{{pageModuleMap.please_department_city || ''}}" bind:cancel="onCancelDepartmentCity" bind:confirm="handelConfirmDepartmentCity" />
+</van-popup>
+<van-popup show="{{ showArriveCity }}" custom-class="vanpopup_styple" bind:close="onCloseArriveCity">
+    <van-area area-list="{{ areaList }}" value="{{arriveAreaCode}}" title="{{pageModuleMap.please_arrive_city || ''}}" bind:cancel="onCancelArriveCity" bind:confirm="handelConfirmArriveCity" />
+</van-popup>

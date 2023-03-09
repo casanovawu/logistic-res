@@ -1,0 +1,13 @@
+<view>
+  <van-image image-class="image_logo" src="/common/logo/logo.png" />
+  <van-button round block type="info" size="large" custom-class='login_button'  bind:click="handleGetUserInfo">
+    微信授权登录
+  </van-button>
+<van-row custom-class="content-box">
+  <van-col offset="2"> <van-checkbox value="{{ checked }}" bind:change="onChangecheckbox"  icon-size="28rpx" custom-class="radio_style"></van-checkbox></van-col>
+  <van-col> 登录即代表您已阅读并接受
+    <text data-id="1" bind:tap="onClickShowContent"  class="text">《用户协议》</text>
+    <text data-id="2" bind:tap="onClickShowContent"  class="text">《隐私政策》</text></van-col>
+</van-row>
+<van-toast id="van-toast" />
+</view>

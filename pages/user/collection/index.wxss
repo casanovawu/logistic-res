@@ -1,0 +1,66 @@
+.vanCheckbox_cartType {
+  width: 150rpx;
+  padding: 5rpx;
+  padding-left: 40rpx;
+}
+.van-card {
+  background-color: var(--card-background-color, #fafafa);
+  box-sizing: border-box;
+  color: var(--card-text-color, #323233);
+  font-size: var(--card-font-size, 12px);
+  padding: var(--card-padding, 8px 16px);
+  position: relative;
+}
+.van-card__header {
+  display: flex;
+}
+.van-card__thumb {
+  flex: none;
+  height: var(--card-thumb-size, 60px);
+  margin-right: var(--padding-xs, 8px);
+  position: relative;
+  width: var(--card-thumb-size, 60px);
+}
+.van-card__img {
+  border-radius: 8px;
+  height: 100%;
+  width: 100%;
+}
+.van-card__content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+  position: relative;
+}
+.van-card__footer {
+  flex: none;
+  margin-top: var(--padding-xs, 4px);
+  margin-bottom: var(--padding-xs, 8px);
+  text-align: left;
+  width: 100%;
+}
+.arrow-right {
+  height: 16rpx;
+  width: 6rpx;
+  display: inline-block;
+  position: relative;
+}
+.arrow-right::after {
+  content: "";
+  height: 8rpx;
+  width: 8rpx;
+  top: 1.2rpx;
+  border-width: 0.8rpx 0.8rpx 0 0;
+  border-color: blue;
+  border-style: solid;
+  transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  position: absolute;
+}
+.vancol_style {
+  text-align: left;
+  overflow: hidden;
+  color: #686464;
+  font-size: 25rpx;
+}

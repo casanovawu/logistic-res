@@ -1,0 +1,5 @@
+<view class="page-container">
+      <view class="page-body">
+          <mp-html content="{{content}}" selectable="force"/>
+      </view>
+</view>

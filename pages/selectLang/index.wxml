@@ -1,0 +1,16 @@
+<van-cell center>
+    <view slot="title">
+        <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+        <van-image round width="5rem" height="5rem" src="{{avatarUrl}}" />
+    </button> 
+</view>
+</van-cell>
+<van-cell-group>
+    <van-field value="{{ userName }}" type="nickname" center label="昵称" placeholder="请输入昵称" border="{{ false }}" bind:change="onUserNameChange"></van-field>
+</van-cell-group>
+<van-cell is-link title="选择语言" value="{{langValue}}" custom-class="vancell_style" bind:click="handleSelectLang"/>
+<van-cell is-link title="用户类型" value="{{typeValue}}" custom-class="vancell_style"  bind:click="handleSelectType"/>
+<van-toast id="van-toast" />
+<van-button round block type="info" custom-class='van-button_style' bind:click="handleConfirmSelect" >确认选择</van-button>
+<van-action-sheet show="{{ showLang }}" actions="{{ actionsLang }}" bind:close="onCloseLang" bind:select="onSelectLang" />
+<van-action-sheet show="{{ showType }}" actions="{{ actionsType }}" bind:close="onCloseType" bind:select="onSelectType" />

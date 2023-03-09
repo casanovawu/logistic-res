@@ -1,0 +1,8 @@
+.hbuilderx
+node_modules
+miniprogram_npm/*
+!.gitkeep
+.vscode
+project.private.config.json
+package-lock.json
+project.config.json

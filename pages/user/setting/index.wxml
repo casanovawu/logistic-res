@@ -1,0 +1,6 @@
+<van-cell is-link title="选择语言" value="{{langValue}}" custom-class="vancell_style" bind:click="handleSelectLang"/>
+<van-cell is-link title="用户类型" value="{{typeValue}}" custom-class="vancell_style"  bind:click="handleSelectType"/>
+<van-field label="手机号" placeholder="{{placeholder}}" bind:change="changePhone" value="{{phone}}" />
+<van-button type="info" plain round block type="info" color="#1989FA" custom-class='van-button_style' bind:click="handleConfirmUpdate" >确认修改</van-button>
+<van-action-sheet show="{{ showLang }}" actions="{{ actionsLang }}" bind:close="onCloseLang" bind:select="onSelectLang" />
+<van-action-sheet show="{{ showType }}" actions="{{ actionsType }}" bind:close="onCloseType" bind:select="onSelectType" />

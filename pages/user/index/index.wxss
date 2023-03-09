@@ -1,0 +1,41 @@
+.user_info_wrap {
+  position: relative;
+  height: 200rpx;
+}
+.user_info_wrap .blackImg {
+  position: absolute;
+  width: 100%;
+  height: 200rpx;
+  filter: blur(2rpx);
+  z-index: 0;
+}
+.user_info_wrap .user_info {
+  display: flex;
+  position: absolute;
+  height: 88px;
+  width: 343px;
+  padding: var(--card-padding, 8px 16px);
+}
+.user_info_wrap .user_info .user_icon {
+  border-radius: 8px;
+  flex: none;
+  height: var(--card-thumb-size, 88px);
+  margin-right: var(--padding-xs, 8px);
+  position: relative;
+  width: var(--card-thumb-size, 88px);
+}
+.user_info_wrap .user_info .user_name {
+  font-weight: 700;
+  line-height: var(--card-title-line-height, 16px);
+}
+.icon_style {
+  align-items: center;
+  display: flex;
+  padding-top: 10rpx;
+  width: var(--cell-line-height, 16px);
+  margin-right: var(--padding-base, 4px);
+  height: var(--cell-line-height, 32rpx);
+}
+.cell_style {
+  padding: 10rpx;
+}

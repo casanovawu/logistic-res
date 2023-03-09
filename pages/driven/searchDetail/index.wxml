@@ -1,0 +1,105 @@
+<view>
+  <view class="van-card">
+    <view class="van-card__header">
+      <view class="van-card__thumb">
+        <image class='van-card__img' mode="aspectFit" src="{{headPic}}" />
+      </view>
+      <view class="van-card__content van-card__content">
+        <van-row>
+          <van-col offset="5" class="van-ellipsis" custom-class="vancol_style" wx:if="{{isLogin}}">
+            <van-button round='true' size="small" icon="/common/searchImg/callphone.png" bind:tap="callphone" data-phone="{{phone}}">
+              联系货主
+            </van-button>
+          </van-col>
+          <!-- <van-col class="van-ellipsis" custom-class="vancol_style">
+            <van-button round='true' size="small" icon="/common/searchImg/focused.png" wx:if="{{isFocus==1}}" bind:tap="handleTapFocus" data-isFocus="0">
+              已关注
+            </van-button>
+            <van-button round='true' size="small" icon="/common/searchImg/focus.png" wx:if="{{isFocus==0}}" bind:tap="handleTapFocus" data-isFocus="1">
+              关注
+            </van-button>
+          </van-col> -->
+          <van-col class="van-ellipsis" custom-class="vancol_style" wx:if="{{isLogin}}">
+            <van-button round='true' size="small" icon="/common/searchImg/collectioned.png" wx:if="{{isCollection==1}}" bind:tap="handleTapCollection" data-isCollection="0">
+              已收藏
+            </van-button>
+            <van-button round='true' size="small" icon="/common/searchImg/collection.png" wx:if="{{isCollection==0}}" bind:tap="handleTapCollection" data-isCollection="1">
+              收藏
+            </van-button>
+          </van-col>
+          <van-col class="van-ellipsis" custom-class="vancol_style">
+            <van-button round='true' size="small" icon="/common/searchImg/share.png" open-type="share">
+              分享
+            </van-button>
+          </van-col>
+        </van-row>
+      </view>
+    </view>
+  </view>
+  <van-skeleton row="1" custom-class='van-skeleton_style'></van-skeleton>
+  <view class="van-card">
+    <van-row>
+      <van-col span="5" custom-class="center_content">用车时间:</van-col>
+      <van-col span="19" custom-class="center_content">{{useStartDate}}</van-col>
+    </van-row>
+    <van-divider dashed></van-divider>
+    <van-row>
+      <van-col span="5" custom-class="center_content_content">装货地点:</van-col>
+      <van-col span="19" custom-class="center_content_content">{{departureAddressName}}</van-col>
+    </van-row>
+    <van-row wx:if="{{isLoadLocation==0}}">
+      <van-col span="5" custom-class="center_content_content">装货详细地址:</van-col>
+      <van-col span="19" custom-class="center_content_content">{{loadAddress}}</van-col>
+    </van-row>
+    <van-row wx:if="{{isLoadLocation==1}}">
+      <map longitude="{{loadLongitude}}" latitude="{{loadLatitude}}" markers="{{loadMarkers}}" bindtap="handleloadTapCallout" bindcallouttap="handleloadTapCallout"></map>
+       <cover-view slot="callout">
+        <cover-view marker-id="1"></cover-view>
+      </cover-view>
+    </van-row>
+    <van-row>
+      <van-col span="5" custom-class="center_content_content">卸货地点:</van-col>
+      <van-col span="19" custom-class="center_content_content">{{arriveAddressName}}</van-col>
+    </van-row>
+    <van-row wx:if="{{isUnloadLocation==0}}">
+      <van-col span="5" custom-class="center_content_content">卸货详细地址:</van-col>
+      <van-col span="19" custom-class="center_content_content">{{unloadAddress}}</van-col>
+    </van-row>
+    <van-row wx:if="{{isUnloadLocation==1}}">
+      <map longitude="{{unloadLongitude}}" latitude="{{unloadLatitude}}" markers="{{unloadMarkers}}" bindtap="handleloadTapCallout" bindcallouttap="handleunloadTapCallout"></map>
+       <cover-view slot="callout">
+        <cover-view marker-id="2"></cover-view>
+      </cover-view>
+    </van-row>
+  </view>
+  <van-skeleton row="1" custom-class='van-skeleton_style'></van-skeleton>
+  <view class="van-card">
+    <van-row>
+      <van-col custom-class="center_content">车货信息</van-col>
+    </van-row>
+    <van-divider dashed></van-divider>
+    <van-row>
+      <van-col span="5" custom-class="center_content_content">车辆类型:</van-col>
+      <van-col span="19" custom-class="center_content_content">{{cartTypeListName}}</van-col>
+    </van-row>
+    <van-row>
+      <van-col span="5" custom-class="center_content_content">价格:</van-col>
+      <van-col span="19" custom-class="center_content_content" wx:if="{{priceStyle===1}}">
+        {{price}}元
+      </van-col>
+      <van-col span="19" custom-class="center_content_content" wx:if="{{priceStyle===2}}">
+        电议
+      </van-col>
+    </van-row>
+    <van-row wx:if="{{minTon!=null || minTon!=null}}">
+      <van-col span="12" custom-class="center_content_content" wx:if="{{minTon!=null }}">最小吨位:{{minTon}}</van-col>
+      <van-col span="12" custom-class="center_content_content" wx:if="{{maxTon!=null }}">最大吨位:{{maxTon}}</van-col>
+    </van-row>
+    <van-row wx:if="{{goodsInfo!='' && goodsInfo!=null}}">
+      <van-col custom-class="center_content_content">货物信息:</van-col>
+      <van-field size="large" border="false" center readonly value="{{goodsInfo}}" type="textarea"></van-field>
+    </van-row>
+  </view>
+  <van-skeleton row="1" custom-class='van-skeleton_style'></van-skeleton>
+  <van-button round block type="info" type="default" bind:tap="handleTapSuggest" wx:if="{{isLogin}}">反馈与建议</van-button>
+</view>

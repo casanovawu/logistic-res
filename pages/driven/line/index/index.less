@@ -1,0 +1,60 @@
+.arrow-right {
+
+    height: 16rpx;
+
+    width: 6rpx;
+
+    display: inline-block;
+
+    position: relative;
+
+    padding-block: 10px;
+}
+
+.arrow-right::after {
+
+    content: "";
+
+    height: 8rpx;
+
+    width: 8rpx;
+
+    top: 1.2rpx;
+
+    border-width: 0.8rpx 0.8rpx 0 0;
+
+    border-color: blue;
+
+    border-style: solid;
+
+    transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+
+    position: absolute;
+
+}
+
+.vancol_style {
+    text-align: left;
+    overflow: hidden;
+    color: rgb(104, 100, 100);
+    font-size: 25rpx;
+}
+
+van-button{
+    position: relative;
+    top: 70rpx;
+    .van-button_style{
+        width: 60%;
+    }
+}
+
+
+.vancell_tips{
+    position: relative;
+    top: 80rpx;
+    margin: 20rpx;
+    color: rgb(248, 9, 9);
+    font-size: 25rpx;
+    text-align: center;
+    align-items: center;
+}

@@ -1,0 +1,9 @@
+.page-container {
+  position: relative;
+}
+.page-container .page-body {
+  position: relative;
+  z-index: 1;
+  margin: 20rpx;
+  font-size: 24rpx;
+}

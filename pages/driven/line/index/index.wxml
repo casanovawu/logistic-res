@@ -1,0 +1,16 @@
+<van-cell-group inset wx:if="{{hasData}}"  wx:for="{{ searchList }}" wx:key="index">
+    <van-row>
+        <van-col span="11" class="van-ellipsis" custom-class="vancol_style">
+            <van-cell title="{{item.departureName}}" bind:tap="handleTapAddress" data-subscribeId="{{item.id}}"/>
+        </van-col>
+        <van-col span="2" class="van-ellipsis" custom-class="vancol_style">
+            <van-cell title="至"/>
+        </van-col>
+        <van-col span="11" class="van-ellipsis" custom-class="vancol_style">
+            <van-cell title="{{item.arriveName}}" bind:tap="handleTapAddress" data-subscribeId="{{item.id}}"/>
+        </van-col>
+    </van-row>
+</van-cell-group>
+<van-button plain round block type="info" color="#1989FA" type="default" custom-class='van-button_style' bind:click="handleInsertLine">
+    添加常用线路
+</van-button>

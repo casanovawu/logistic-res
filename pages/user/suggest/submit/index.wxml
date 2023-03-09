@@ -1,0 +1,5 @@
+<van-field label="联系人" placeholder="请输入我们称呼您的方式(选填)" bind:change="changeContactName" />
+<van-field label="联系电话" placeholder="请输入您的联系方式(选填)" bind:change="changeContactPhone" />
+<van-uploader file-list="{{fileList}}" accept="image" max-count="10" bind:after-read="afterRead" bind:delete="deleteImg" />
+<van-field label="{{label}}" type="textarea" input-align="right" placeholder="{{placeholder}}" autosize show-word-limit maxlength="500" bind:change="changeContent" />
+<van-button round block type="info" bind:click="handleSubmit">提交</van-button>

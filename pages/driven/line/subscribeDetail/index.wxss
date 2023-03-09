@@ -1,0 +1,27 @@
+van-popup .vanpopup_styple {
+  width: 600rpx;
+  height: 600rpx;
+}
+.vanCheckbox_cartType {
+  width: 150rpx;
+  padding: 5rpx;
+  padding-left: 40rpx;
+}
+van-divider {
+  margin: 0;
+  padding: 0rpx;
+}
+van-divider .vandivider_style {
+  margin: 0;
+  padding: 0rpx;
+}
+.vancell_tips {
+  color: #f80909;
+}
+van-button {
+  position: relative;
+  top: 70rpx;
+}
+van-button .van-button_style {
+  width: 60%;
+}

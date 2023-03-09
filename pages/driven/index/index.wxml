@@ -1,0 +1,77 @@
+<page-meta page-style="{{ showDropdownMenu ? 'overflow: hidden;' : '' }}" >
+<van-search value="{{ keyword }}" placeholder="请输入搜索关键词" use-action-slot bind:change="onChange">
+  <view slot="action" bind:tap="onSearch">搜索</view>
+</van-search>
+<van-dropdown-menu>
+  <van-dropdown-item title="{{departmentCityValue}}" id="showDepartmentCity" bind:open="onOpenDropdownMenu" bind:close="onCloseDropdownMenu">
+      <van-area area-list="{{ areaList }}" value="{{departureAreaCode}}" title="请选择出发城市" bind:cancel="onCancelDepartmentCity" bind:confirm="handelConfirmDepartmentCity" />
+  </van-dropdown-item>
+  <van-dropdown-item title="{{arriveCityValue}}" id="showArriveCity" bind:open="onOpenDropdownMenu" bind:close="onCloseDropdownMenu">
+    <van-area area-list="{{ areaList }}" value="{{arriveAreaCode}}"  title="请选择目的城市" bind:cancel="onCancelArriveCity" bind:confirm="handelConfirmArriveCity" />
+  </van-dropdown-item>
+  <van-dropdown-item title="筛选" bind:open="onOpenDropdownMenu" bind:close="onCloseDropdownMenu">
+    <van-row>
+      <van-col span="16">
+        <van-field label="价格范围" type='number' placeholder="最小价格" border bind:change="onChangeMinPrice" />
+      </van-col>
+      <van-col span="8">
+        <van-field type='number' placeholder="最大价格" border bind:change="onChangeMaxPrice" />
+      </van-col>
+    </van-row>
+    <van-cell title="选择日期区间" value="{{ useDateRange }}" bind:click="onDisplayUseStartDate" />
+    <van-calendar show="{{ showUseStartDate }}" type="range" bind:close="onCloseUseStartDate" bind:confirm="onConfirmUseStartDate" show-confirm="{{ true }}" allow-same-day position="top" />
+    <van-row>
+      <van-col span="16">
+        <van-field label="吨位范围" type='number' placeholder="最小吨位" border bind:change="onChangeTonMin" />
+      </van-col>
+      <van-col span="8">
+        <van-field type='number' placeholder="最大吨位" border bind:change="onChangeTonMax" />
+      </van-col>
+    </van-row>
+    <van-cell title="用车类型" is-link value="{{carTypeValue}}" arrow-direction="{{showCarType? 'down':''}}" bind:tap="handleTapCarType" data-showtype="{{showCarType}}" />
+    <van-checkbox-group wx:if="{{showCarType}}" value="{{carTypeCheckedList}}" bind:change="onChangeCarType" direction="horizontal">
+      <view wx:for="{{ carTypeList }}" wx:key="index">
+        <van-checkbox shape="square" custom-class="vanCheckbox_cartType" name="{{ item.key }}">
+          {{item.name}}
+        </van-checkbox>
+      </view>
+    </van-checkbox-group>
+  </van-dropdown-item>
+</van-dropdown-menu>
+<view wx:if="{{hasData}}" class="van-card" wx:for="{{ searchList }}" wx:key="index">
+  <navigator  url="/pages/driven/searchDetail/index?orderId={{item.orderId}}">
+  <view class="van-card__header">
+    <view class="van-card__thumb">
+      <image class='van-card__img' mode="aspectFit" src="{{item.headPic}}" />
+    </view>
+    <view class="van-card__content van-card__content">
+      <van-row>
+        <van-col span="11" class="van-ellipsis" custom-class="vancol_style">{{item.departureAddressName}}</van-col>
+        <van-col span="2" class="van-ellipsis" custom-class="vancol_style">
+          <span class="arrow-right" />
+        </van-col>
+        <van-col span="11" class="van-ellipsis" custom-class="vancol_style">{{item.arriveAddressName}}</van-col>
+      </van-row>
+      <van-row>
+        <van-col>{{item.cartTypeListName || ''}}</van-col>
+      </van-row>
+      <van-row>
+        <van-col span="20">{{item.useStartDate}}出发</van-col>
+        <van-col span="4" wx:if="{{item.priceStyle===1}}">{{item.price}}</van-col>
+        <van-col span="4" wx:if="{{item.priceStyle===2}}">电议</van-col>
+      </van-row>
+    </view>
+  </view>
+  <view class="van-card__footer">
+    <van-row>
+      <van-col span="20">{{item.publishTime}}</van-col>
+      <van-col span="4">{{item.lookNumber}}人查看</van-col>
+    </van-row>
+  </view>
+  </navigator>
+</view>
+<view wx:if="{{!hasData}}">
+  <van-empty description="{{pageModuleMap.publish_content_is_empty || ''}}" />
+</view>
+<view style="height: 5rem;"></view>
+</page-meta>
